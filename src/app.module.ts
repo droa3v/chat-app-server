@@ -2,6 +2,8 @@ import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { User } from "./users/entities/user.entity";
+import { UsersModule } from "./users/users.module";
 
 @Module({
   imports: [
@@ -19,10 +21,11 @@ import { TypeOrmModule } from "@nestjs/typeorm";
         username: process.env.DATABASE_USERNAME || "postgres",
         password: process.env.DATABASE_PASSWORD || "postgres",
         database: process.env.DATABASE_SCHEMA || "chatdb",
-        entities: [],
+        entities: [User],
         synchronize: true,
       }),
     }),
+    UsersModule,
   ],
   controllers: [],
   providers: [],
