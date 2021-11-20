@@ -6,6 +6,8 @@ import { User } from "./users/entities/user.entity";
 import { UsersModule } from "./users/users.module";
 import { RoomsModule } from "./rooms/rooms.module";
 import { Room } from "./rooms/entities/room.entity";
+import { MessagesModule } from "./messages/messages.module";
+import { Message } from "./messages/entities/message.entity";
 
 @Module({
   imports: [
@@ -23,12 +25,13 @@ import { Room } from "./rooms/entities/room.entity";
         username: process.env.DATABASE_USERNAME || "postgres",
         password: process.env.DATABASE_PASSWORD || "postgres",
         database: process.env.DATABASE_SCHEMA || "chatdb",
-        entities: [User, Room],
+        entities: [User, Room, Message],
         synchronize: true,
       }),
     }),
     UsersModule,
     RoomsModule,
+    MessagesModule,
   ],
   controllers: [],
   providers: [],
