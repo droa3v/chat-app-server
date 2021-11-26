@@ -8,6 +8,7 @@ import { RoomsModule } from "./rooms/rooms.module";
 import { Room } from "./rooms/entities/room.entity";
 import { MessagesModule } from "./messages/messages.module";
 import { Message } from "./messages/entities/message.entity";
+import { AuthModule } from "./auth/auth.module";
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { Message } from "./messages/entities/message.entity";
     UsersModule,
     RoomsModule,
     MessagesModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

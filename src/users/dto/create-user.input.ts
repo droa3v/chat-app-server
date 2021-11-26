@@ -1,5 +1,7 @@
 import { InputType, Field } from "@nestjs/graphql";
 import { IsEmail, Length } from "class-validator";
+import { UniqueOnDatabase } from "src/auth/validations/unique.validation";
+import { User } from "../entities/user.entity";
 
 @InputType()
 export class CreateUserInput {
@@ -12,8 +14,11 @@ export class CreateUserInput {
   username: string;
   @IsEmail()
   @Field()
+  @UniqueOnDatabase(User, {
+    message: "This email is already in use",
+  })
   email: string;
   @Length(8, 32)
-  @Field({ nullable: true })
-  password?: string;
+  @Field()
+  password: string;
 }

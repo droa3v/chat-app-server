@@ -20,7 +20,7 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  async findOne(id: string) {
+  async findUserById(id: string) {
     const user = await this.usersRepository.findOne(id);
 
     if (!user) {
@@ -28,6 +28,10 @@ export class UsersService {
     }
 
     return user;
+  }
+
+  findUserByEmail(email: { email: string }) {
+    return this.usersRepository.findOne(email);
   }
 
   async update(id: string, updateUserInput: UpdateUserInput) {

@@ -22,9 +22,6 @@ export class Message {
   @ManyToOne(() => User)
   @Field(() => User)
   creator: User;
-  // @Column()
-  // @Field()
-  // creatorId: string;
   @CreateDateColumn()
   created_at: Date;
   @UpdateDateColumn()
@@ -32,13 +29,7 @@ export class Message {
   @ManyToOne(() => User, { nullable: true })
   @Field(() => User, { nullable: true })
   recipient?: User;
-  // @Column({ nullable: true })
-  // @Field({ nullable: true })
-  // recipientId?: string;
   @ManyToOne(() => Room, { nullable: true })
   @Field(() => Room, { nullable: true })
   room?: Room;
-  // @Column({ nullable: true })
-  // @Field({ nullable: true })
-  // roomId?: string;
 }
