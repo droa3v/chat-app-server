@@ -12,7 +12,7 @@ import {
 export class User {
   @PrimaryGeneratedColumn("uuid")
   @Field()
-  id: string;
+  _id: string;
   @Column({ nullable: true })
   @Field({ nullable: true })
   firstName?: string;
@@ -26,7 +26,6 @@ export class User {
   @Field()
   email: string;
   @Column()
-  @Field()
   password: string;
   @CreateDateColumn()
   @Field()
@@ -34,4 +33,7 @@ export class User {
   @UpdateDateColumn()
   @Field()
   updated_at: Date;
+  @Column({ default: "user" })
+  @Field()
+  role: string;
 }
