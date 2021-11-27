@@ -36,4 +36,7 @@ export class User {
   @Column({ default: "user" })
   @Field()
   role: string;
+  @Column({ type: "date" })
+  @Field()
+  birthday: string;
 }
