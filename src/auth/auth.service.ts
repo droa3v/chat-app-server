@@ -43,7 +43,7 @@ export class AuthService {
 
     return {
       user: user,
-      token: this.signToken(user.id, user.email),
+      token: this.signToken(user._id, user.email),
     };
   }
 
@@ -63,7 +63,7 @@ export class AuthService {
 
     return {
       user: createdUser,
-      token: this.signToken(createdUser.id, createdUser.email),
+      token: this.signToken(createdUser._id, createdUser.email),
     };
   }
 }

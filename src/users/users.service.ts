@@ -12,6 +12,7 @@ export class UsersService {
     @InjectRepository(User)
     private usersRepository: Repository<User>,
   ) {}
+
   create(createUserInput: CreateUserInput) {
     return this.usersRepository.save(createUserInput);
   }

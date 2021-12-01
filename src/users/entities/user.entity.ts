@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Role } from "../dto/role.enum";
 
 @Entity({ name: "Users" })
 @ObjectType()
@@ -33,10 +34,10 @@ export class User {
   @UpdateDateColumn()
   @Field()
   updated_at: Date;
-  @Column({ default: "user" })
+  @Column({ type: "enum", enum: Role, default: Role.USER })
   @Field()
-  role: string;
-  @Column({ type: "date" })
+  role: Role;
+  @Column({ type: "date", nullable: true })
   @Field()
   birthday: string;
 }

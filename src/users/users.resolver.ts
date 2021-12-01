@@ -2,8 +2,6 @@ import { Resolver, Query, Mutation, Args } from "@nestjs/graphql";
 import { UsersService } from "./users.service";
 import { User } from "./entities/user.entity";
 import { UpdateUserInput } from "./dto/update-user.input";
-import { UseGuards } from "@nestjs/common";
-import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import { ReqUser } from "src/auth/decorators/user.decorator";
 
 @Resolver(() => User)
@@ -20,7 +18,6 @@ export class UsersResolver {
     return this.usersService.findUserById(id);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Mutation(() => User, { name: "updateUser" })
   update(
     @ReqUser() user: User,
